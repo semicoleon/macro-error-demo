@@ -129,10 +129,13 @@ impl From<u8> for NoLt {
     }
 }
 
+// `expected leaf: `;` rust-analyzer(macro-error)`
 make_enum!(
     LtEnum;
     "one": One, "two": Two(Lt<'static>),
 );
+
+// No error
 make_enum!(
     NoLtEnum;
     "one": One, "two": Two(NoLt)
